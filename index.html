@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Práctica 4 - Novedades HTML5</title>
+    <style>
+        /* Estilo para reemplazar el atributo frameborder obsoleto */
+        iframe {
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,17 +27,21 @@
     <main>
         <section id="multimedia">
             <h2>Selección Multimedia</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q-E94gls-PQ?si=3hNBfITvWRJKbhwt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- Eliminado el atributo frameborder y añadido CSS para quitarlo -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q-E94gls-PQ?si=3hNBfITvWRJKbhwt" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <figure>
                 <audio controls>
-                    <source src="audio\Elektronomia - Sky High  Progressive House  NCS - Copyright Free Music - NoCopyrightSounds.mp3" type="audio/mpeg">
-                    <source src="audio\Elektronomia-Sky-High-Progressive-House-NCS-Copyright-Free-Music-NoCopyrightSounds.ogg" type="audio/ogg">
+                    <!-- Cambiado \ por / en las rutas -->
+                    <source src="audio/Elektronomia - Sky High  Progressive House  NCS - Copyright Free Music - NoCopyrightSounds.mp3" type="audio/mpeg">
+                    <source src="audio/Elektronomia-Sky-High-Progressive-House-NCS-Copyright-Free-Music-NoCopyrightSounds.ogg" type="audio/ogg">
                 </audio>
                 <figcaption>Reproductor de Audio HTML5</figcaption>
             </figure>
             <figure>
-                <video controls poster="img\OIP.webp" width="480">
-                    <source src="video\videoplayback.webm" type="video/webm">
+                <!-- Cambiado \ por / en la ruta del poster -->
+                <video controls poster="img/OIP.webp" width="480">
+                    <!-- Cambiado \ por / en la ruta del video -->
+                    <source src="video/videoplayback.webm" type="video/webm">
                 </video>
                 <figcaption>Reproductor de Video HTML5</figcaption>
             </figure>
@@ -78,19 +88,20 @@
         <p>Desarrollado por: Alonso Gomez Burguete - Práctica 4 | <time datetime="2026-08-31">31 de agosto de 2026</time></p>
     </footer>
     
-            <script>
-                const canvas = document.getElementById('miLienzo');
-                const ctx = canvas.getContext('2d');
-                ctx.fillStyle = '#0284c7';
-                ctx.fillRect(20, 20, 180, 90);
-                ctx.fillStyle = '#ffffff';
-                ctx.font = '16px Arial';
-                ctx.fillText('UNACH HTML5', 40, 70);
-                ctxbeginPath();
-                ctx.arc(350, 100, 50, 0, Math.PI * 2);
-                ctx.strokeStyle = '#0f172a';
-                ctx.lineWidth = 4;
-                ctx.stroke();
-            </script>
-    </body>
+    <script>
+        const canvas = document.getElementById('miLienzo');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#0284c7';
+        ctx.fillRect(20, 20, 180, 90);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '16px Arial';
+        ctx.fillText('UNACH HTML5', 40, 70);
+        // Corregido: faltaba un punto entre ctx y beginPath
+        ctx.beginPath();
+        ctx.arc(350, 100, 50, 0, Math.PI * 2);
+        ctx.strokeStyle = '#0f172a';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+    </script>
+</body>
 </html>
